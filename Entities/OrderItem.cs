@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Globalization;
 namespace DesafioSecao8.Entities
 {
     internal class OrderItem
     {
         public int Quantity { get; set; }
-        public double Price { get; set; }   
+          
         public Product Product { get; set; }
 
 
-        public OrderItem() { }
-
-        public OrderItem(Product product, int quantity, double price)
+        public OrderItem(Product product, int quantity)
         {
             Product = product;
             Quantity = quantity;
-            Price = price;
+            
         }
 
         public double SubTotal()
         {
-            return Quantity * Price;
+            return Quantity * Product.Price;
+        }
+
+        public override string ToString()
+        {
+            return $"{Product.Name}, {Product.Price}, Quantity: {Quantity}, {(SubTotal(), CultureInfo.InvariantCulture)}";
         }
     }
 }

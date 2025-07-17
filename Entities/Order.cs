@@ -15,16 +15,11 @@ namespace DesafioSecao8.Entities
 
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 
-        public Order(OrderStatus orderStatus, Client client)
-        {
+  
+        public Order() 
+        { 
             Moment = DateTime.Now;
-            OrderStatus = orderStatus;
         }
-
-        public Order()
-        {
-        }
-
 
         public void AddItem(OrderItem item)
         {
@@ -44,6 +39,24 @@ namespace DesafioSecao8.Entities
                 sum += item.SubTotal();
             }
             return sum;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("ORDER SUMMARY");
+            sb.AppendLine($"Order moment: {Moment}");
+            sb.AppendLine($"Order status: {OrderStatus}");
+            sb.AppendLine($"Cliente: {Client.ToString()}");
+            sb.AppendLine("Order items:");
+            foreach (OrderItem item in Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.AppendLine($"Total price: {Total()}");
+
+            return sb.ToString();
+
         }
     }
 }
