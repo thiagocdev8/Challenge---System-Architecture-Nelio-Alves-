@@ -10,12 +10,14 @@ namespace DesafioSecao8.Entities
     {
         public int Quantity { get; set; }
         public double Price { get; set; }   
+        public Product Product { get; set; }
 
 
         public OrderItem() { }
 
-        public OrderItem(int quantity, double price)
+        public OrderItem(Product product, int quantity, double price)
         {
+            Product = product;
             Quantity = quantity;
             Price = price;
         }

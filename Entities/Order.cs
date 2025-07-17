@@ -9,14 +9,15 @@ namespace DesafioSecao8.Entities
 {
     internal class Order
     {
+        public Client Client { get; set; }
         public DateTime Moment { get; set; }
         public OrderStatus OrderStatus { get; set; }
 
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 
-        public Order(DateTime moment, OrderStatus orderStatus)
+        public Order(OrderStatus orderStatus, Client client)
         {
-            Moment = moment;
+            Moment = DateTime.Now;
             OrderStatus = orderStatus;
         }
 
