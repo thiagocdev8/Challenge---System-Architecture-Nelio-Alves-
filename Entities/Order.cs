@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace DesafioSecao8.Entities
 {
@@ -47,13 +48,13 @@ namespace DesafioSecao8.Entities
             sb.AppendLine("ORDER SUMMARY");
             sb.AppendLine($"Order moment: {Moment}");
             sb.AppendLine($"Order status: {OrderStatus}");
-            sb.AppendLine($"Cliente: {Client.ToString()}");
+            sb.AppendLine($"Client: {Client.ToString()}");
             sb.AppendLine("Order items:");
             foreach (OrderItem item in Items)
             {
                 sb.AppendLine(item.ToString());
             }
-            sb.AppendLine($"Total price: {Total()}");
+            sb.AppendLine($"Total price: ${Total().ToString("F2", CultureInfo.InvariantCulture)}");
 
             return sb.ToString();
 

@@ -27,7 +27,7 @@ namespace DesafioSecao8.Entities
 
         public override string ToString()
         {
-            return $"{Product.Name}, {Product.Price}, Quantity: {Quantity}, {(SubTotal(), CultureInfo.InvariantCulture)}";
+            return $"{Product.Name}, ${Product.Price.ToString("F2", CultureInfo.InvariantCulture)}, Quantity: {Quantity}, Subtotal: {SubTotal().ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }

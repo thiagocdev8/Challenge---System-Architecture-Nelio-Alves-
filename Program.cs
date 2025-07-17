@@ -49,7 +49,7 @@ namespace DesafioSecao8
                 order.AddItem(orderItem);
             }
 
-
+            Console.WriteLine();
             Console.WriteLine(order.ToString());
 
 
